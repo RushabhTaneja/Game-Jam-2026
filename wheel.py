@@ -14,11 +14,11 @@ spoke3 = turtle.Turtle()
 spoke4 = turtle.Turtle()
 spokes = [spoke1,spoke2,spoke3,spoke4]
 
-turtle.register_shape("assets/blue_circle.gif")
-turtle.register_shape("assets/red_square.gif")
-turtle.register_shape("assets/yello_triangle.gif")
+turtle.register_shape("C:/Users/jml67/Game-Jam-2026/assets/blue_circle-ezgif.com-resize.gif")
+turtle.register_shape("assets/red_square-ezgif.com-resize.gif")
+turtle.register_shape("assets/yello_triangle-ezgif.com-resize.gif")
 
-gif_shapes = ["assets/blue_circle.gif", "assets/red_square.gif", "assets/yello_triangle.gif"]
+gif_shapes = ["C:/Users/jml67/Game-Jam-2026/assets/blue_circle-ezgif.com-resize.gif", "assets/red_square-ezgif.com-resize.gif", "assets/yello_triangle-ezgif.com-resize.gif"]
 
 def generate_sequence():
     return [random.choice(gif_shapes) for _ in range(4)]
@@ -61,7 +61,7 @@ def display_sequence(seq):
     for i, gif in enumerate(seq):
         t = sequence_turtles[i]
         t.shape(gif)
-        t.shapesize(stretch_wid=size*0.001, stretch_len=1)
+        t.shapesize(stretch_wid=size, stretch_len=1)
         t.showturtle()
 
 setup_sequence_display()

@@ -2,6 +2,7 @@ import math
 import pygame as pg
 from pygame.math import Vector2
 import turtle
+import random
 
 size = 20
 speed = 20
@@ -13,6 +14,14 @@ spoke3 = turtle.Turtle()
 spoke4 = turtle.Turtle()
 spokes = [spoke1,spoke2,spoke3,spoke4]
 
+turtle.register_shape("assets/blue_circle.gif")
+turtle.register_shape("assets/red_square.gif")
+turtle.register_shape("assets/yello_triangle.gif")
+
+gif_shapes = ["assets/blue_circle.gif", "assets/red_square.gif", "assets/yello_triangle.gif"]
+
+def generate_sequence():
+    return [random.choice(gif_shapes) for _ in range(4)]
 
 _ = 0
 for spoke in spokes:
@@ -32,6 +41,32 @@ rim.left(90)
 
 
 rim.circle(size*10)
+
+sequence_turtles = []
+
+def setup_sequence_display():
+
+    start_x = 50
+    start_y = -200
+
+    for i in range(4):
+        t = turtle.Turtle()
+        t.hideturtle()
+        t.penup()
+        t.speed(0)
+        t.goto(start_x + i * 40, start_y)
+        sequence_turtles.append(t)
+
+def display_sequence(seq):
+    for i, gif in enumerate(seq):
+        t = sequence_turtles[i]
+        t.shape(gif)
+        t.shapesize(stretch_wid=size*0.001, stretch_len=1)
+        t.showturtle()
+
+setup_sequence_display()
+current_sequence = generate_sequence()
+display_sequence(current_sequence)
 
 def toggle_spin():
     global spinning

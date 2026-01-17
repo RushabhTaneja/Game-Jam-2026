@@ -3,14 +3,16 @@ import pygame as pg
 from pygame.math import Vector2
 import turtle
 
-size = 30
-speed = 6
+size = 20
+speed = 20
+spinning = False
 
 spoke1 = turtle.Turtle()
 spoke2 = turtle.Turtle()
 spoke3 = turtle.Turtle()
 spoke4 = turtle.Turtle()
 spokes = [spoke1,spoke2,spoke3,spoke4]
+
 
 _ = 0
 for spoke in spokes:
@@ -31,8 +33,19 @@ rim.left(90)
 
 rim.circle(size*10)
 
-while True:
- for spoke in spokes:
-  spoke.left(speed)
+def toggle_spin():
+    global spinning
+    spinning = not spinning
+
+turtle.onscreenclick(lambda x, y: toggle_spin())
+
+def update():
+    if spinning:
+        for spoke in spokes:
+            spoke.left(speed)
+    turtle.update()
+    turtle.ontimer(update, 16)
+
+update()
 
 turtle.done()

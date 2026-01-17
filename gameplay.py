@@ -41,7 +41,7 @@ def draw_wheel(rotation_angle):
 angle_offset = 0
 while True:
     draw_wheel(angle_offset)
-    angle_offset += 5 # Increment angle for rotation
+    angle_offset += 2 # Increment angle for rotation
     if angle_offset > 360:
         angle_offset = 0
     time.sleep(0.05) # Control speed

@@ -14,11 +14,11 @@ spoke3 = turtle.Turtle()
 spoke4 = turtle.Turtle()
 spokes = [spoke1,spoke2,spoke3,spoke4]
 
-turtle.register_shape("C:/Users/jml67/Game-Jam-2026/assets/blue_circle-ezgif.com-resize.gif")
-turtle.register_shape("assets/red_square-ezgif.com-resize.gif")
-turtle.register_shape("assets/yello_triangle-ezgif.com-resize.gif")
+turtle.register_shape("assets/blue_circle_resize.gif")
+turtle.register_shape("assets/red_square_resize.gif")
+turtle.register_shape("assets/yello_triangle_resize.gif")
 
-gif_shapes = ["C:/Users/jml67/Game-Jam-2026/assets/blue_circle-ezgif.com-resize.gif", "assets/red_square-ezgif.com-resize.gif", "assets/yello_triangle-ezgif.com-resize.gif"]
+gif_shapes = ["assets/blue_circle_resize.gif","assets/red_square_resize.gif", "assets/yello_triangle_resize.gif"]
 
 def generate_sequence():
     return [random.choice(gif_shapes) for _ in range(4)]
@@ -46,15 +46,15 @@ sequence_turtles = []
 
 def setup_sequence_display():
 
-    start_x = 50
-    start_y = -200
+    start_x = -120
+    start_y = -300
 
     for i in range(4):
         t = turtle.Turtle()
         t.hideturtle()
         t.penup()
         t.speed(0)
-        t.goto(start_x + i * 40, start_y)
+        t.goto(start_x + i * 80, start_y)
         sequence_turtles.append(t)
 
 def display_sequence(seq):
